@@ -1,4 +1,4 @@
-name: CI - Testes Chatbot
+name: CI - Teste Chatbot
 
 on:
   pull_request:
