@@ -7,7 +7,7 @@ def normalizar_texto(texto):
     ).lower()
 
 def responder(mensagem):
-    mensagem = mensagem.lower()
+    mensagem = normalizar_texto(mensagem)
 
     respostas = {
         "oi": "Olá! Como posso ajudar?",
