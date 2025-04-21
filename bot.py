@@ -1,9 +1,21 @@
+import unicodedata
+
+def normalizar_texto(texto):
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', texto)
+        if unicodedata.category(c) != 'Mn'
+    ).lower()
+
 def responder(mensagem):
-    mensagem = mensagem.lower()
+    mensagem = normalizar_texto(mensagem)
+
+    if "tempo" in mensagem:
+        return "Não sei a previsão, mas espero que esteja um dia bonito!"
 
     respostas = {
         "oi": "Olá! Como posso ajudar?",
         "olá": "Oi! Tudo bem por aí?",
+        "bom dia": "Bom dia! Já tomou água hoje?",
         "tudo bem": "Que bom! Comigo também está tudo certo.",
         "tchau": "Até logo! Foi bom conversar com você.",
         "ajuda": "Claro! Você pode perguntar sobre comandos como 'oi', 'tchau', 'ajuda'..."
