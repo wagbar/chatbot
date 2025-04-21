@@ -9,6 +9,9 @@ def normalizar_texto(texto):
 def responder(mensagem):
     mensagem = normalizar_texto(mensagem)
 
+    if "tempo" in mensagem:
+        return "Não sei a previsão, mas espero que esteja um dia bonito!"
+
     respostas = {
         "oi": "Olá! Como posso ajudar?",
         "olá": "Oi! Tudo bem por aí?",
