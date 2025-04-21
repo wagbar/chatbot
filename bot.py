@@ -1,3 +1,11 @@
+import unicodedata
+
+def normalizar_texto(texto):
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', texto)
+        if unicodedata.category(c) != 'Mn'
+    ).lower()
+
 def responder(mensagem):
     mensagem = mensagem.lower()
 
