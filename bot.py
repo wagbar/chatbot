@@ -26,7 +26,7 @@ def responder(mensagem):
         "tudo bem": "Tudo ótimo, obrigado por perguntar!",
         "qual seu nome": "Sou um chatbot em constante evolução!",
         "ajuda": "Claro! Você pode me perguntar sobre o tempo, a hora, ou apenas dizer 'oi'.",
-        "tchau": "Até mais! Foi ótimo conversar com você!",
+        "tchau": "Até a próxima! Foi ótimo conversar com você!",
     }
 
     # Tenta achar uma resposta conhecida
