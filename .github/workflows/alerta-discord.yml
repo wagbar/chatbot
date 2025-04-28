@@ -1,20 +1,16 @@
-name: Alerta para Discord
+name: Discord
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [closed]
+  - push
 
 jobs:
-  enviar_alerta:
+  discord:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Enviar alerta para Discord
-      run: |
-        curl -H "Content-Type: application/json" \
-          -X POST \
-          -d "{\"content\": \"🚀 Novo push ou PR mergeado no repositório!\"}" \
-          ${{ secrets.DISCORD_WEBHOOK }}
+      - uses: actions/checkout@v4
+      - name: Run Discord Webhook
+        uses: $niddl/discord-commits@v1.6
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true
